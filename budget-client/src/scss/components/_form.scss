@@ -1,0 +1,61 @@
+.login-form {
+  position: relative;
+  background: $white-color;
+  width: 500px;
+  border-radius: 4px;
+  box-shadow: 0 0 30px rgba(black, 0.1);
+  box-sizing: border-box;
+  padding: 40px;
+  overflow: hidden;
+}
+
+.login-header {
+  margin-bottom: 20px;
+}
+.form-control {
+  margin: 20px 0;
+}
+.form-control label {
+  display: block;
+  margin: 10px;
+  color: $black-color;
+  font-size: $font-xxs;
+  font-weight: $font-500;
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+}
+
+.form-control input {
+  outline: none;
+  display: block;
+  background: $light-color;
+  width: 100%;
+  border: 0;
+  border-radius: 4px;
+  box-sizing: border-box;
+  padding: 12px 20px;
+  color: $black-color;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: $font-500;
+  line-height: inherit;
+  transition: 0.3s ease;
+}
+
+.login-submitBtn {
+  outline: none;
+  background: $primary-color;
+  width: 50%;
+  border: 0;
+  border-radius: 4px;
+  padding: 12px 20px;
+  color: $white-color;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: 500;
+  line-height: inherit;
+  text-transform: uppercase;
+  cursor: pointer;
+  margin-top: 20px;
+}

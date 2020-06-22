@@ -1,0 +1,36 @@
+.nav-wrapper {
+  width: 100%;
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  z-index: 2;
+  top: 0;
+}
+.sign-container {
+  display: flex;
+  justify-content: space-around;
+  margin: 0 20px;
+  a {
+    text-decoration: none;
+  }
+}
+.login-title,
+.register-title {
+  color: $black-color;
+  padding: 20px;
+  font-weight: $font-700;
+  cursor: pointer;
+
+  &:hover {
+    color: $primary-color;
+  }
+}
+.img-logo {
+  margin: 10px;
+}
+
+.active {
+  color: $primary-color;
+}
