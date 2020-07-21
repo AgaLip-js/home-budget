@@ -3,16 +3,21 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "engines": {
+    "node": "12.17.0",
+    "npm": "6.14.4"
+  },
   "scripts": {
-    "start": "node budget-server",
-    "dev": "concurrently \"npm run budget-server\" \"npm run budget-client\"",
+    "start": "node budget-server/server.js",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
     "client": "npm start --prefix budget-client",
-    "server": "nodemon budget-server",
+    "server": "nodemon budget-server/server.js",
     "heroku-postbuild": "cd budget-client && npm install && npm run build"
   },
   "author": "Agata Lipiak",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.19.2",
     "bcrypt": "^5.0.0",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
