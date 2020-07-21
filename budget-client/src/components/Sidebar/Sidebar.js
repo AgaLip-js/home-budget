@@ -62,7 +62,7 @@ const StyledSection = styled(NavLink)`
   }
 `;
 
-const Sidebar = () => (
+const Sidebar = ({ setAuth, logout }) => (
   <StyledWrapper>
     <StyledLogoLink to="/" />
     <StyledLinksList>
@@ -88,7 +88,7 @@ const Sidebar = () => (
         >
           Planowanie Budżetu
         </StyledSection>
-        <StyledLogout to="/login">
+        <StyledLogout to="/login" onClick={(e) => logout(e)}>
           <FontAwesomeIcon icon={faSignOutAlt} alt={"Wyloguj Się"} />
         </StyledLogout>
       </li>

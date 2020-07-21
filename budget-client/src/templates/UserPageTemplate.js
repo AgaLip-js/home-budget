@@ -1,5 +1,5 @@
 import React from "react";
-import Sidebar from "../components/Sidebar/Sidebar";
+
 import Footer from "../components/Footer/Footer";
 import styled from "styled-components";
 
@@ -17,14 +17,12 @@ const StyledWrapper = styled.div`
   padding-top: 80px;
 `;
 
-const UserPageTemplate = ({ children, pageContext }) => (
-  <>
-    <StyledWrapper pageContext={pageContext}>
-      <Sidebar pageContext={pageContext} />
-
-      {children}
-    </StyledWrapper>
-  </>
-);
+const UserPageTemplate = ({ children, pageContext }) => {
+  return (
+    <>
+      <StyledWrapper pageContext={pageContext}>{children}</StyledWrapper>
+    </>
+  );
+};
 
 export default UserPageTemplate;
