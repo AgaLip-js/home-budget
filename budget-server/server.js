@@ -12,7 +12,7 @@ app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 const ENV = process.env.NODE_ENV;
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 5000;
 
 // app.use(express.static("budget-client/build"));
 if (ENV === "production") {

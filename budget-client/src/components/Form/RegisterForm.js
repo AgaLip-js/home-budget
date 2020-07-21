@@ -35,7 +35,7 @@ const RegisterForm = ({ title }) => {
       onSubmit={(values, { setSubmitting, resetForm }) => {
         setTimeout(() => {
           axios
-            .post("http://localhost:4000/user/register", {
+            .post("http://localhost:5000/user/register", {
               login: values.login,
               email: values.email,
               password: values.password,

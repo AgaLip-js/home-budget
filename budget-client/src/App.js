@@ -23,7 +23,7 @@ function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const checkAuthenticated = async () => {
     try {
-      const res = await fetch("http://localhost:4000/authentication/verify", {
+      const res = await fetch("http://localhost:5000/authentication/verify", {
         method: "POST",
         headers: { token: localStorage.token },
       });
