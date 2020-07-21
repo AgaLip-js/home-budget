@@ -17,7 +17,7 @@ import "aos/dist/aos.css";
 import Summary from "./views/Summary";
 import Analysis from "./views/Analysis";
 import Planning from "./views/Planning";
-import history from "./history";
+import history from "./templates/history";
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
