@@ -11,7 +11,16 @@ app.use(cors());
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+const ENV = process.env.NODE_ENV;
 const PORT = process.env.PORT || 4000;
+
+app.use(express.static("budget-client/build"));
+if (ENV === "production") {
+  app.use(express.static(path.join(__dirname, "../budget-client/build")));
+  app.use((req, res) => {
+    res.sendFile(path.join(__dirname, "../budget-client/build/index.html"));
+  });
+}
 
 app.post("/user/register", async (req, res) => {
   try {
