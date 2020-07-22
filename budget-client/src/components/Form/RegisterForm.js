@@ -47,6 +47,7 @@ const RegisterForm = ({ title }) => {
               } else {
                 localStorage.setItem("token", res.token);
                 resetForm({});
+                console.log("Register sucessfuly");
                 toast.success("Register Successfully");
                 history.push("/login");
               }

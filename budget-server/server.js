@@ -2,19 +2,19 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const pool = require("./db");
-var bodyParser = require("body-parser");
+const bodyParser = require("body-parser");
 const jwtGenerator = require("./utils/jwtGenerator");
 const bcrypt = require("bcrypt");
 const authorization = require("./middleware/authorization");
 
+const ENV = process.env.NODE_ENV;
+const PORT = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-const ENV = process.env.NODE_ENV;
-const PORT = process.env.PORT || 5000;
 
-// app.use(express.static("budget-client/build"));
+app.use(express.static("budget-client/build"));
 if (ENV === "production") {
   app.use(express.static(path.join(__dirname, "../budget-client/build")));
   app.use((req, res) => {
@@ -24,12 +24,23 @@ if (ENV === "production") {
 
 app.post("/user/register", async (req, res) => {
   try {
+    console.log("USER REGISTER");
     const { login, email, password } = req.body;
+    console.log("Login email password");
+    console.log(login);
+    console.log(email);
+    console.log(password);
     const allUsers = await pool.query("SELECT login, email FROM logintable");
+    console.log("Db pool");
+    console.log(allUsers);
     const user = allUsers.rows.filter(
       (el) => el.login === login || el.email === email
     );
+    console.log(" user: ");
+
+    console.log(user);
     if (user.length > 0) {
+      console.log("USER exists");
       res.json("User already exist!");
     } else {
       let hashedPassword = await bcrypt.hash(password, 10);
@@ -37,9 +48,12 @@ app.post("/user/register", async (req, res) => {
         "INSERT INTO logintable (login, email, password) VALUES($1, $2, $3) RETURNING *",
         [login, email, hashedPassword]
       );
+      console.log("New user: ");
+      console.log(newUser);
       res.send(newUser.rows);
       res.redirect("/user/login");
       const token = jwtGenerator(newUser.rows[0].id);
+      console.log("Token: ");
       console.log(res.json({ token }));
       return res.json({ token });
     }
